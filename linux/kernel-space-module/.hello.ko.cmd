@@ -1,0 +1,1 @@
+cmd_/home/jzhu/my-c/linux/kernel-space-module/hello.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/jzhu/my-c/linux/kernel-space-module/hello.ko /home/jzhu/my-c/linux/kernel-space-module/hello.o /home/jzhu/my-c/linux/kernel-space-module/hello.mod.o
