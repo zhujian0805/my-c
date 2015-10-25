@@ -1,0 +1,1 @@
+cmd_/home/jzhu/my-c/linux/module/nothing.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/jzhu/my-c/linux/module/nothing.ko /home/jzhu/my-c/linux/module/nothing.o /home/jzhu/my-c/linux/module/nothing.mod.o
