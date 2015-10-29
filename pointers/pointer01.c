@@ -16,12 +16,15 @@ int main ()
 
    /* take the value using pptr */
    printf("Value available at var = %d\n", var);
+   printf("Value available at var = %d\n", var);
    printf("Value available at var = %p\n", &var);
 
    printf("Value available at var = %p\n", ptr);
+   printf("Value available at var = %d\n", *ptr);
    printf("Value available at var = %p\n", &ptr);
 
    printf("Value available at var = %p\n", pptr);
+   printf("Value available at var = %p\n", *pptr);
    printf("Value available at var = %p\n", &pptr);
 
    return 0;
