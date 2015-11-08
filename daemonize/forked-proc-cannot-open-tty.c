@@ -19,6 +19,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <string.h>
+#include <errno.h>
 
 int main(){
 
@@ -43,8 +45,9 @@ int main(){
     }
 
     if(open("/dev/tty", O_RDWR) == -1){
-        printf("open /dev/tty error\n");
-        exit(1);
+        fprintf(stderr, "Value of errno: %d\n", errno);
+        fprintf(stderr, "Error opening the file: %s\n", strerror( errno ));
+        perror("Error printed by perror");
     }
 
 }
