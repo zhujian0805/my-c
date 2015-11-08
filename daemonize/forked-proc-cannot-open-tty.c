@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <fcntl.h>
 
 int main(){
 
@@ -37,8 +38,13 @@ int main(){
 
     printf("I'm the child, i'm alive\n");
 
-    setsid();
+    if(setsid() == -1){
+        exit(1);
+    }
 
-    open("/dev/tty");
+    if(open("/dev/tty", O_RDWR) == -1){
+        printf("open /dev/tty error\n");
+        exit(1);
+    }
 
 }
