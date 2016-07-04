@@ -12,7 +12,7 @@
 #include <linux/uaccess.h>	/* copy_{to,from}_user() */
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Valentine Sinitsyn <valentine.sinitsyn@gmail.com>");
+MODULE_AUTHOR("James Zhu <zhujian0805@gmail.com>");
 MODULE_DESCRIPTION("In-kernel phrase reverser");
 
 static unsigned long buffer_size = 8192;
