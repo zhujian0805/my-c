@@ -82,7 +82,6 @@ static char *reverse_phrase(char *start, char *end)
 		word_start = word_end + 1;
 	}
 
-	printk(KERN_INFO "start: %s, end: %s\n", word_start, end );
 	reverse_word(word_start, end);
 
 	return reverse_word(start, end);
@@ -144,8 +143,11 @@ static ssize_t reverse_read(struct file *file, char __user * out,
 		goto out_unlock;
 	}
 
+	printk(KERN_INFO "to user data: %s\n", out);
+
 	buf->read_ptr += size;
 	result = size;
+
 
  out_unlock:
 	mutex_unlock(&buf->lock);
@@ -161,8 +163,7 @@ static ssize_t reverse_write(struct file *file, const char __user * in,
 
 	if (size > buffer_size) {
 		result = -EFBIG;
-		goto out;
-	}
+		goto out; }
 
 	if (mutex_lock_interruptible(&buf->lock)) {
 		result = -ERESTARTSYS;
@@ -173,6 +174,7 @@ static ssize_t reverse_write(struct file *file, const char __user * in,
 		result = -EFAULT;
 		goto out_unlock;
 	}
+	printk(KERN_INFO "user data: %s\n", buf->data );
 
 	buf->end = buf->data + size;
 	buf->read_ptr = buf->data;
@@ -180,7 +182,7 @@ static ssize_t reverse_write(struct file *file, const char __user * in,
 	if (buf->end > buf->data)
 		reverse_phrase(buf->data, buf->end - 1);
 
-	printk(KERN_INFO "%s\n", buf->data);
+	printk(KERN_INFO "buffer data: %s\n", buf->data);
 	wake_up_interruptible(&buf->read_queue);
 
 	result = size;
