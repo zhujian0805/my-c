@@ -1,4 +1,28 @@
 /* make the page writable */
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/init.h>
+#include <linux/sched.h>
+#include <linux/fs.h>
+#include <linux/file.h>
+#include <linux/fs_struct.h>
+#include <linux/fdtable.h>
+#include <linux/string.h>
+#include <linux/mm.h>
+#include <linux/syscalls.h>
+#include <linux/list.h>
+#include <linux/jiffies.h>
+#include <linux/cdev.h>
+#include <asm/unistd.h>
+#include <linux/unistd.h>
+#include <asm/uaccess.h>
+#include <linux/path.h>
+#include <linux/time.h>
+#include <linux/stat.h>
+#include <net/sock.h>
+#include <net/inet_sock.h>
+#include <asm/cpufeature.h>
+
 int make_rw(unsigned long address)
 {        unsigned int level;
         pte_t *pte = lookup_address(address, &level);//查找虚拟地址所在的页表地址

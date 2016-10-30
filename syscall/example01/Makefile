@@ -1,5 +1,5 @@
-obj-m += test.o
-#obj-m += syscall.o
+#obj-m += test.o
+obj-m += syscall.o
 CFLAGS_reverse.o += -DDEBUG
 
 all:
