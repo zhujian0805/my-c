@@ -1,0 +1,1 @@
+http://commons.oreilly.com/wiki/index.php/Network_Security_Tools/Modifying_and_Hacking_Security_Tools/Fun_with_Linux_Kernel_Modules#Intercepting_sys_unlink.28_.29_Using_System.map
