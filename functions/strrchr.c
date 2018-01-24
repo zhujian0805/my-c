@@ -31,6 +31,6 @@ main(int argc, char **argv)
     _progname = (p && p[1]) ? p+1 : argv[0];
 
     printf("The program is %s \n", _progname);
-    printf("The program start at %d \n", *p);
+    printf("The program start at %s \n", p);
 
 }
