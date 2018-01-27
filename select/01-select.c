@@ -110,6 +110,7 @@ int main(void)
             // add to fd queue
             if (conn_amount < BACKLOG) {
                 fd_A[conn_amount++] = new_fd;
+                printf("new connection fd is [%d]\n", new_fd);
                 printf("new connection client[%d] %s:%d\n", conn_amount,
                         inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
                 if (new_fd > maxsock)
