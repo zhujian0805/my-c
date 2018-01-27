@@ -9,7 +9,7 @@
 #include <arpa/inet.h>
 
 #define MYPORT 1234    // the port users will be connecting to
-#define BACKLOG 5     // how many pending connections queue will hold
+#define BACKLOG 100     // how many pending connections queue will hold
 #define BUF_SIZE 200
 
 int fd_A[BACKLOG];    // accepted connection fd
