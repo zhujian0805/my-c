@@ -65,6 +65,7 @@ int main(void)
     maxsock = sock_fd;
     while (1) {
         // initialize file descriptor set
+        printf("listen on connection fd is [%d]\n", sock_fd);
         FD_ZERO(&fdsr);
         FD_SET(sock_fd, &fdsr);
         // timeout setting
